@@ -6,9 +6,14 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install wget 
 
-RUN wget -O /usr/local/share/phddns_raspberry.tgz http://download.oray.com/peanuthull/embed/phddns_raspberry.tgz
-RUN tar zxvf /usr/local/share/phddns_raspberry.tgz -C /usr/local/share
+RUN wget -O /usr/local/phddns_raspberry.tgz http://download.oray.com/peanuthull/embed/phddns_raspberry.tgz
+RUN tar zxvf /usr/local/phddns_raspberry.tgz -C /usr/local/
 
-CMD ["/usr/local/share/phddns2/oraynewph start"]
+ADD ./bin /usr/local/bin
+RUN chmod a+x /usr/local/bin/*
+
+WORKDIR /usr/local/phddns2
+
+CMD ["phddns_run"]
 
 
