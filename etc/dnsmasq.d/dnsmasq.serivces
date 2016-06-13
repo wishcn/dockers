@@ -1,0 +1,10 @@
+#apple app store
+address=/.phobos.apple.com/202.175.5.114
+
+server=/google.com/223.5.5.5
+server=/github.com/223.5.5.5
+server=/gist.github.com/223.5.5.5
+server=/mzstatic.com/223.5.5.5
+server=/microsoft.com/223.5.5.5
+server=/s-microsoft.com/223.5.5.5
+server=/onestore.ms/223.5.5.5
