@@ -1,3 +1,4 @@
 #!/bin/bash
 
-oraynewph start
+/usr/local/phddns2/oraynewph start
+
