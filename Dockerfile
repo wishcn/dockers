@@ -1,0 +1,11 @@
+FROM ubuntu
+
+MAINTAINER xxstop <xxstop@qq.com>
+
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get install -y supervisor cron
+
+RUN sed -i s/required/sufficient/g /etc/pam.d/cron
+
+CMD ["/usr/bin/supervisord"]
