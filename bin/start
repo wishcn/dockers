@@ -1,14 +1,11 @@
 #!/bin/bash
 
-crontabs = (
-  "* * * * * echo xx > /tmp/x.log"
-)
+read -d '' crontabStr << EOF
+* * * * * echo xx > /tmp/x.log
+* * * * * echo xx > /tmp/y.log
+EOF
 
-crontabStr = ""
-
-for i in ${crontabs[@]};do
-  crontabStr = "${crontabStr}${i}\n\"
-done
-
-echo -e $crontabStr | crontab
+echo "$crontabStr" | crontab
 exec supervisord -c /etc/supervisor/conf.d/supervisord.conf
+
+
