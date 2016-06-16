@@ -1,8 +1,6 @@
 #!/bin/bash
 
 read -d '' crontabStr << EOF
-* * * * * echo xx > /tmp/x.log
-* * * * * echo xx > /tmp/y.log
 EOF
 
 echo "$crontabStr" | crontab

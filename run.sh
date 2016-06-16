@@ -4,6 +4,7 @@ BSDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 CMD="docker run -d --name crond --privileged
 	-v $BSDIR/bin/start:/usr/local/bin/start
         -v $BSDIR/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+	-v $BSDIR/data:/data
         xxstop/crond"
 
 echo $CMD
