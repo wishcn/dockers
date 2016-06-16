@@ -1,1 +1,1 @@
-docker build -t xxstop/cron .
+docker build -t xxstop/crond .
