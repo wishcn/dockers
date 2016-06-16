@@ -1,6 +1,7 @@
 #!/bin/bash
 
 read -d '' crontabStr << EOF
+0 8 * * * python /data/assassin/v2ex_sign.py
 EOF
 
 echo "$crontabStr" | crontab
