@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM resin/rpi-raspbian:latest
 
 MAINTAINER xxstop <xxstop@qq.com>
 

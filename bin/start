@@ -1,8 +1,6 @@
 #!/bin/bash
 
 read -d '' crontabStr << EOF
-3 * * * * /data/assassin/boss_sign.py
-3 * * * * /data/yangjike/assassin/boss_sign.py
 EOF
 
 echo "$crontabStr" | crontab
