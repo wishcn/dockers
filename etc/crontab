@@ -1,1 +1,0 @@
-* * * * * /bin/echo "test" > /var/log/test.log
