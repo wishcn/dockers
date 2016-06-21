@@ -2,14 +2,10 @@ FROM xxstop/base
 
 MAINTAINER xxstop <xxstop@qq.com>
 
-ENV HOME /root
-
 RUN usermod -u 99 nobody && \
     usermod -g 100 nobody
 
 RUN apt-get install -y mariadb-server mariadb-client
-
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # Tweak my.cnf
 RUN sed -i -e 's#\(bind-address.*=\).*#\1 0.0.0.0#g' /etc/mysql/my.cnf
