@@ -1,13 +1,7 @@
-FROM centos:centos7
-MAINTAINER Luo Tao <lotreal@gmail.com>
+FROM xxstop/base
+MAINTAINER xxstop <xxstop@qq.com>
 
-RUN yum -y update
-RUN yum -y install python-setuptools
-RUN easy_install pip && pip install shadowsocks
+ADD https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo /etc/yum/yum.repos.d/
 
-ADD ./bin /usr/local/bin
-RUN chmod a+x /usr/local/bin/*
-
-WORKDIR /etc/shadowsocks
-
-CMD ["ss_run"]
+RUN yum update
+RUN yum -y install shadowsocks-libev

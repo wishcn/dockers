@@ -1,1 +1,1 @@
-docker build -t lotreal/shadowsocks .
+docker build -t xxstop/shadowsocks .
