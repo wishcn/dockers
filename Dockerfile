@@ -13,6 +13,5 @@ ADD ./sbin /usr/local/sbin
 RUN chmod a+x /usr/local/sbin/*
 
 ADD ./scripts /usr/local/scripts
-ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["x_init"]
