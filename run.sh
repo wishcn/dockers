@@ -2,6 +2,7 @@
 BSDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 CMD="docker run -d --name nginxphp --privileged 
+	--link=mariadb:mysql
 	-v $BSDIR/data:/data
 	-v $BSDIR/etc/nginx/sites-available:/etc/nginx/sites-available
 	-v $BSDIR/scripts:/usr/local/scripts
