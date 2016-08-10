@@ -8,6 +8,8 @@ RUN apt-get install -y tmux
 RUN apt-get install -y wget
 RUN apt-get install -y vim emacs
 
+RUN git clone https://github.com/joelthelion/autojump.git ~/.autojump \
+    && python ~/.autojump/install.py
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
     && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
     && chsh -s /bin/zsh
