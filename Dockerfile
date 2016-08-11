@@ -11,9 +11,6 @@ RUN git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-z
 ### wget/curl
 RUN apt-get install -y curl wget
 
-### tmux
-RUN apt-get install -y tmux
-
 ### editor
 RUN apt-get install -y vim emacs
 RUN git clone --depth=1 https://github.com/purcell/emacs.d.git ~/.emacs.d

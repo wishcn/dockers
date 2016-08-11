@@ -3,8 +3,6 @@ BSDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 BSDIR=${BSDIR/\//\/\/}
 
 CMD="winpty docker run -d --name windev --privileged
-        -v $BSDIR//supervisord.conf://etc//supervisor//conf.d//supervisord.conf
-        -v $BSDIR//root//.tmux.conf://root//.tmux.conf
         -v $BSDIR//..//PhpstormProjects://w//xxstop//PhpstormProjects
         xxstop/windev"
 
