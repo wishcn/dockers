@@ -1,4 +1,4 @@
-# Mysql Docker
+# windev Docker
 
 ## 操作指南
 
@@ -6,6 +6,6 @@
 
 * ./run.sh
 
-* docker start mysql
+* docker start windev
 
 ------
