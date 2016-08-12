@@ -6,6 +6,6 @@
 
 * ./run.sh
 
-* docker start mysql
+* docker start webs
 
 ------
