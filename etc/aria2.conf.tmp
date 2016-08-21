@@ -9,6 +9,7 @@ min-split-size=5M
 enable-http-pipelining=true
 
 enable-rpc=true
+rpc-allow-origin-all=true
 rpc-listen-port=6800
 rpc-listen-all=true
 rpc-secret=
