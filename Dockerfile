@@ -4,6 +4,8 @@ MAINTAINER xxstop <xxstop@qq.com>
 
 ENV HOME /root
 
+ADD ./sources.list /etc/apt/sources.list
+
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install supervisor 
