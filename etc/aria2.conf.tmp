@@ -11,4 +11,4 @@ enable-http-pipelining=true
 enable-rpc=true
 rpc-listen-port=6800
 rpc-listen-all=true
-rpc-token=
+rpc-secret=
