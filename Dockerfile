@@ -16,6 +16,7 @@ RUN chmod a+x /usr/local/sbin/*
 
 RUN apt-get -y install ca-certificates
 RUN apt-get -y install apt-transport-https
+RUN apt-get -y install unzip
 
 ADD ./scripts /usr/local/scripts
 
