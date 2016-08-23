@@ -1,4 +1,4 @@
-dir=/data
+dir=/data/down
 file-allocation=none
 log-level=warn
 
