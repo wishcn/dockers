@@ -3,7 +3,7 @@
   "server_port":25735,
   "local_address": "127.0.0.1",
   "local_port":8016,
-  "password":"qwerdf!@#123",
+  "password":"1233211234567",
   "timeout":300,
   "method":"aes-256-cfb",
   "fast_open": false
