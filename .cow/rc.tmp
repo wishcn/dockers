@@ -65,7 +65,7 @@ listen = http://0.0.0.0:7777
 #   用户认证信息为可选项
 #
 # shadowsocks:
-   proxy = ss://encrypt_method:password@1.2.3.4:8388
+proxy = ss://encrypt_method:password@1.2.3.4:8388
 #   proxy = ss://encrypt_method-auth:password@1.2.3.4:8388
 #
 #   encrypt_method 添加 -auth 启用 One Time Auth
