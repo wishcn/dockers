@@ -153,6 +153,6 @@ proxy = ss://encrypt_method:password@1.2.3.4:8388
 
 # 修改 stat/blocked/direct 文件路径，如不指定，默认在配置文件所在目录下
 # 执行 cow 的用户需要有对 stat 文件所在目录的写权限才能更新 stat 文件
-#statFile = <dir to rc file>/stat
-#blockedFile = <dir to rc file>/blocked
-#directFile = <dir to rc file>/direct
+statFile = /etc/cow/stat
+blockedFile = /etc/cow/blocked
+directFile = /etc/cow/direct
