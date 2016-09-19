@@ -1,1 +1,1 @@
-docker build -t xxstop/base .
+docker build --no-cache -t xxstop/base .
