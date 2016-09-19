@@ -1,5 +1,5 @@
 FROM xxstop/base
 MAINTAINER xxstop <xxstop@qq.com>
 
-apt-get install python-pip
-pip install shadowsocks
+RUN apt-get -y install python-pip
+RUN pip -y install shadowsocks
