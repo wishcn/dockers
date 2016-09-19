@@ -34,9 +34,10 @@ echo "---------------------------------------------------------"
 
 #Motify to meet you need:
 #which port to check
-check_port=7877
+check_port=$1
 #ip store tmp file 
-ipfile=ip.txt
+ipfile="/var/log/port_${1}.log"
+logfile="/var/log/log_${1}.log"
 #port ip connection limit
 iplimit=1
 #Script run between time
@@ -45,10 +46,10 @@ sleep_time=50
 #-------------------------------------------------------------------------------------------------------
 
 #do main:
-echo "" > log.txt
+echo "" > $logfile
 while(true)
 do
-netstat -anopt | grep $check_port | awk '{print $5}' |awk -F ':' '{print $1}' |grep -v "0.0.0.0" |tr -s '\n'|awk '!x[$0]++' > ip.txt
+netstat -anopt | grep $check_port | awk '{print $5}' |awk -F ':' '{print $1}' |grep -v "0.0.0.0" |tr -s '\n'|awk '!x[$0]++' > $ipfile
 
 
 #get file line number
@@ -57,7 +58,7 @@ i=0;
      ((i++))
      done
 
-f_zise=`du -k ip.txt|awk '{print $1}'`
+f_zise=`du -k $ipfile|awk '{print $1}'`
 if [ $f_zise == 0 ]; then
 line_number=0
 else
@@ -72,14 +73,14 @@ fi
         for ipadd2 in $(cat $ipfile);do
         
         if [ $i2 -lt $iplimit ] || [ $i2 -eq $iplimit ] ; then
-             date >> log.txt
-             echo "ip address:"$ipadd2"-online:" >> log.txt
+             date >> $logfile
+             echo "ip address:"$ipadd2"-online:" >> $logfile
 		
         else 
         netstat -anopt | grep $ipadd2 | awk '{print $7}'|awk -F '/' '{print $1}' > $ipadd2.txt
             for pid in $(cat $ipadd2.txt);do
              
-             echo $ipadd2":"$pid"[pid]:killed" >> log.txt
+             echo $ipadd2":"$pid"[pid]:killed" >> $logfile
              kill  $pid
               
             done
@@ -87,13 +88,13 @@ fi
         fi
         ((i2++))
         done
-        echo "---------------------------------------" >> log.txt
+        echo "---------------------------------------" >> $logfile
     elif [ $line_number -gt 0 ] || [ $line_number -lt $iplimit ] || [ $line_number -eq $iplimit ]; then
         for ipaddr in $(cat $ipfile);do
-        date >> log.txt
-        echo "ip address:"$ipaddr"-online" >> log.txt
+        date >> $logfile
+        echo "ip address:"$ipaddr"-online" >> $logfile
         done
-        echo "---------------------------------------" >> log.txt
+        echo "---------------------------------------" >> $logfile
     
     fi
 
