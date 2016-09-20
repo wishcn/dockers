@@ -1,10 +1,9 @@
 server {
-    listen 127.0.0.1:3128;
-    server_name localhost;
+    listen 0.0.0.0:3128;
     resolver 8.8.8.8;
     location / {
         set $upstream_host $host;
-	if ($request_uri ~ "^/announce.*") {
+        if ($request_uri ~ "^/announce.*") {
             return 403;
         }
         if ($request_uri ~ "^.*torrent.*") {
@@ -12,7 +11,6 @@ server {
         }
         proxy_set_header Host $upstream_host;
         proxy_pass http://$upstream_host;
-        proxy_buffers 8 32k;
         proxy_buffering off;
-   }
+    }
 }

@@ -3,7 +3,6 @@ BSDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 CMD="docker run -d --name shadowsocks --privileged 
     -v $BSDIR/etc/shadowsocks:/etc/shadowsocks 
-    -v $BSDIR/etc/nginx/sites-available/default:/etc/nginx/sites-available/default
     -v $BSDIR/data/bin:/data/bin
     -v $BSDIR/scripts:/usr/local/scripts
     -v $BSDIR/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf

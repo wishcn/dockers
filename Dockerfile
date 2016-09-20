@@ -6,6 +6,8 @@ RUN apt-get -y install net-tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install iptables-persistent
 RUN apt-get -y install ufw
 RUN apt-get -y install nginx
+RUN apt-get -y install curl
+ADD ./etc/nginx/sites-available/default /etc/nginx/sites-available/default
 
 RUN useradd -ms /bin/bash http-ss
 
