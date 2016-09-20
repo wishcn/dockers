@@ -7,5 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install iptables-persistent
 RUN apt-get -y install ufw
 RUN apt-get -y install nginx
 
+RUN useradd -ms /bin/bash http-ss
+
 RUN pip install --upgrade pip
 RUN pip install shadowsocks
