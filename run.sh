@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 BSDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-CMD="docker run -d --name shadowsocks --privileged 
+CMD="docker run -d --name shadowsocks --privileged --restart=always
     -v $BSDIR/etc/shadowsocks:/etc/shadowsocks 
     -v $BSDIR/data/bin:/data/bin
     -v $BSDIR/scripts:/usr/local/scripts
