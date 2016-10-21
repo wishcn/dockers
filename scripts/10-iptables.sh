@@ -4,6 +4,7 @@ iptables -A INPUT -p tcp --syn --dport 21541 -m connlimit --connlimit-above 32 -
 iptables -A INPUT -p tcp --syn --dport 24090 -m connlimit --connlimit-above 32 -j REJECT --reject-with tcp-reset
 iptables -A INPUT -p tcp --syn --dport 25919 -m connlimit --connlimit-above 32 -j REJECT --reject-with tcp-reset
 iptables -A INPUT -p tcp --syn --dport 24138 -m connlimit --connlimit-above 32 -j REJECT --reject-with tcp-reset
+iptables -A INPUT -p tcp --syn --dport 24520 -m connlimit --connlimit-above 32 -j REJECT --reject-with tcp-reset
 
 iptables -t filter -A OUTPUT -d 127.0.0.1 -j ACCEPT
 iptables -t filter -m owner --uid-owner http-ss -A OUTPUT -p tcp --sport 1080 -j ACCEPT

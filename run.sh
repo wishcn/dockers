@@ -10,6 +10,7 @@ CMD="docker run -d --name shadowsocks --privileged --restart=always
     -p 24090:24090/udp -p 24090:24090/tcp
     -p 25919:25919/udp -p 25919:25919/tcp
     -p 24138:24138/udp -p 24138:24138/tcp
+    -p 24520:24520/udp -p 24520:24520/tcp
     xxstop/shadowsocks"
 
 echo $CMD
