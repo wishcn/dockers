@@ -26,4 +26,12 @@ services:
       - ~/dockers/dnsmasq/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - "53:53"
-    
+  cow:
+    image: xxstop/cow
+    restart: always
+    volumes:
+      - ~/dockers/cow/etc/cow:/etc/cow
+      - ~/dockers/.cow/rc:/root/.cow/rc
+      - ~/dockers/dnsmasq/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "7777:7777"
