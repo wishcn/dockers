@@ -1,0 +1,36 @@
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:latest
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+      - "80:80"
+  nginx-php:
+    image: xxstop/nginxphp
+    restart: always
+    volumes:
+      ./data:/data
+      ./etc/nginx/site-available:/etc/nginx/site-available
+      ./scripts:/usr/local/scripts
+      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    links:
+      ./mysql:mariadb
+  mariadb:
+    image: xxstop/mariadb
+    restart: always
+    volumes:
+      ./scripts:/usr/local/scripts
+      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+  dnsmasq:
+    image: xxstop/dnsmasq
+    restart: always
+    volumes:
+      ./etc/associate.d:/etc/associate.d
+      ./etc/dnsmasq.d:/etc/dnsmasq.d
+      ./etc/dnsmasq.conf:/etc/dnsmasq.conf
+      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "53:53"
+    
