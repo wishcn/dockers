@@ -11,26 +11,26 @@ services:
     image: xxstop/nginxphp
     restart: always
     volumes:
-      ./data:/data
-      ./etc/nginx/site-available:/etc/nginx/site-available
-      ./scripts:/usr/local/scripts
-      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      ../nginx.php/data:/data
+      ../nginx.php/etc/nginx/site-available:/etc/nginx/site-available
+      ../nginx.php/scripts:/usr/local/scripts
+      ../nginx.php/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     links:
-      ./mysql:mariadb
+      mariadb: mariadb.xxstop.dev
   mariadb:
     image: xxstop/mariadb
     restart: always
     volumes:
-      ./scripts:/usr/local/scripts
-      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      ../mariadb/scripts:/usr/local/scripts
+      ../mariadb/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
   dnsmasq:
     image: xxstop/dnsmasq
     restart: always
     volumes:
-      ./etc/associate.d:/etc/associate.d
-      ./etc/dnsmasq.d:/etc/dnsmasq.d
-      ./etc/dnsmasq.conf:/etc/dnsmasq.conf
-      ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      ../dnsmasq/etc/associate.d:/etc/associate.d
+      ../dnsmasq/etc/dnsmasq.d:/etc/dnsmasq.d
+      ../dnsmasq/etc/dnsmasq.conf:/etc/dnsmasq.conf
+      ../dnsmasq/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - "53:53"
     
