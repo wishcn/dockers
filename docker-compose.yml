@@ -1,0 +1,29 @@
+version: '2'
+services:
+  nginx-php:
+    image: xxstop/nginxphp
+    restart: always
+    volumes:
+      - ~/dockers/nginx.php/data:/data
+      - ~/dockers/nginx.php/etc/nginx/site-available:/etc/nginx/site-available
+      - ~/dockers/nginx.php/scripts:/usr/local/scripts
+      - ~/dockers/nginx.php/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    links:
+      - mariadb:mariadb.xxstop.dev
+  mariadb:
+    image: xxstop/mariadb
+    restart: always
+    volumes:
+      - ~/dockers/mariadb/scripts:/usr/local/scripts
+      - ~/dockers/mariadb/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+  dnsmasq:
+    image: xxstop/dnsmasq
+    restart: always
+    volumes:
+      - ~/dockers/dnsmasq/etc/associate.d:/etc/associate.d
+      - ~/dockers/dnsmasq/etc/dnsmasq.d:/etc/dnsmasq.d
+      - ~/dockers/dnsmasq/etc/dnsmasq.conf:/etc/dnsmasq.conf
+      - ~/dockers/dnsmasq/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "53:53"
+    
