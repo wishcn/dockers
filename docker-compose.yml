@@ -26,6 +26,7 @@ services:
       - ~/dockers/dnsmasq/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - "53:53"
+      - "53:53/udp"
   cow:
     image: xxstop/cow
     restart: always
