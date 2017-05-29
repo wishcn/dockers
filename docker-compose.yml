@@ -16,9 +16,13 @@ services:
     volumes:
       - ~/dockers/mariadb/scripts:/usr/local/scripts
       - ~/dockers/mariadb/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "3306:3306"
+      - "3306:3306/udp"
   dnsmasq:
     image: xxstop/dnsmasq
     restart: always
+    privileged: true
     volumes:
       - ~/dockers/dnsmasq/etc/associate.d:/etc/associate.d
       - ~/dockers/dnsmasq/etc/dnsmasq.d:/etc/dnsmasq.d
@@ -36,3 +40,4 @@ services:
       - ~/dockers/cow/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - "7777:7777"
+      - "7777:7777/udp"
