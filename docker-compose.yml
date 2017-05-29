@@ -22,6 +22,8 @@ services:
   redis:
     image: xxstop/redis
     restart: always
+    volumes:
+      - ~/dockers/redis/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - "6379:6379"
       - "6379:6379/udp"
