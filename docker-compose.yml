@@ -19,6 +19,12 @@ services:
     ports:
       - "3306:3306"
       - "3306:3306/udp"
+  redis:
+    image: xxstop/redis
+    restart: always
+    ports:
+      - "6379:6379"
+      - "6379:6379/udp"
   dnsmasq:
     image: xxstop/dnsmasq
     restart: always
